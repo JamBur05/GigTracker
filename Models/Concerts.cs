@@ -12,5 +12,6 @@ namespace GigTracker.Models
         public int id {  get; set; }
         public string BandName { get; set; }
         public string VenueName { get; set; }
+        public DateTime Date { get; set; }
     }
 }

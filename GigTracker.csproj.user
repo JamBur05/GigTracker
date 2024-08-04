@@ -7,11 +7,17 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\frmAddConcert.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\frmLogin.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\frmAddConcert.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\frmLogin.xaml">
       <SubType>Designer</SubType>
     </Page>

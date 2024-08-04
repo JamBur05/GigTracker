@@ -8,12 +8,13 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TextBlock x:Name="txtUserDisplay" HorizontalAlignment="Left" Margin="20,19,0,0" TextWrapping="Wrap" Text="Hi Username!" VerticalAlignment="Top" Height="29" Width="186" FontSize="20"/>
-        <DataGrid x:Name="ConcertsDataGrid" AutoGenerateColumns="False" Margin="39,53,44,35">
+        <DataGrid x:Name="ConcertsDataGrid" AutoGenerateColumns="False" Margin="39,53,44,68">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Band" Binding="{Binding BandName}" />
                 <DataGridTextColumn Header="Venue" Binding="{Binding VenueName}" />
+                <DataGridTextColumn Header="dATE" Binding="{Binding date}" />
             </DataGrid.Columns>
         </DataGrid>
-
+        <Button x:Name="btnNewConcert" Content="Add New Concert"  Margin="589,385,80,21" Click="btnNewConcert_Click"/>
     </Grid>
 </Window>

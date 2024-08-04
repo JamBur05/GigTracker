@@ -92,10 +92,54 @@ namespace GigTracker.Services
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Failed to create account");
+                MessageBox.Show("Failed to create account" + ex.Message);
             }
         }
 
+        private async Task CreateUserConcertRelationship(int userID, int concertID)
+        {
+            var newRelationship = new UserConcerts
+            {
+                concertID = concertID,
+                userID = userID
+            };
+            await client.From<UserConcerts>().Insert(newRelationship);
+        }
+
+        public async void AddConcert(int userID, string bandName, string venueName, DateTime date)
+        {
+            try
+            {
+                // Add new concert
+                var newConcert = new Concerts
+                {
+                    BandName = bandName,
+                    VenueName = venueName,
+                    Date = date
+                };
+
+                // Insert the new concert and get the response
+                var insertResponse = await client.From<Concerts>().Insert(newConcert);
+
+                // Check if the insert was successful and retrieve the ID
+                if (insertResponse.Models.Any())
+                {
+                    var insertedConcert = insertResponse.Models.First();
+                    int concertID = insertedConcert.id; // Retrieve the auto-generated ID
+
+                    // Now create the relationship in the UserConcerts table
+                    await CreateUserConcertRelationship(userID, concertID);
+                }
+                else
+                {
+                    throw new Exception("Failed to insert concert.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error adding new concert" + ex.Message);
+            }
+        }
 
         public async Task<List<Concerts>> FetchConcerts(int userID)
         {
