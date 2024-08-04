@@ -27,27 +27,6 @@ namespace GigTracker.Views
             InitializeAsync();
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            string username = txtUsername.Text;
-            string password = txtPassword.Password; // For PasswordBox, use Password property
-            
-            var isValidUser = await supabaseConnection.ValidUser(username, password);
-
-            if(isValidUser)
-            {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("No user found");
-            }
-
-        }
-
-
         private async void InitializeAsync()
         {
             try
@@ -61,6 +40,34 @@ namespace GigTracker.Views
                 // Handle exceptions or log them
                 MessageBox.Show($"Error initializing Supabase connection: {ex.Message}");
             }
+        }
+
+        private async void Login_Click(object sender, RoutedEventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Password;
+
+            var isValidUser = await supabaseConnection.ValidUser(username, password);
+
+            if (isValidUser != -1)
+            {
+                MainWindow mainWindow = new MainWindow(username, isValidUser);
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No user found");
+            }
+
+        }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Password;
+
+            supabaseConnection.CreateAccount(username, password);
         }
     }
 }

@@ -23,11 +23,23 @@ namespace GigTracker.Views
     {
         private SupabaseConnection supabaseConnection;
 
-        public MainWindow()
+        public MainWindow(string username, int userID)
         {
             InitializeComponent();
+
+            txtUserDisplay.Text = "Hi " + username + "!";
+
             InitializeAsync();
+            DisplayTable(userID);
         }
+
+        private async void DisplayTable(int userID)
+        {
+            ConcertsDataGrid.ItemsSource = null; 
+            var concerts = await supabaseConnection.FetchConcerts(userID);
+            ConcertsDataGrid.ItemsSource = concerts;
+        }
+
 
         private async void InitializeAsync()
         {

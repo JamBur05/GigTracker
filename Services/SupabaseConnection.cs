@@ -47,7 +47,7 @@ namespace GigTracker.Services
             }
         }
 
-        public async Task<bool> ValidUser(string username, string password)
+        public async Task<int> ValidUser(string username, string password)
         {
             try
             {
@@ -58,16 +58,44 @@ namespace GigTracker.Services
                     .Get();
 
                 // Check if any user is found
-                return userSearch.Models != null && userSearch.Models.Any();
+                if(userSearch.Models != null && userSearch.Models.Any())
+                {
+                    var user = userSearch.Models.First();
+                    return user.id; // Return the userID
+                }
+                else
+                {
+                    return -1;
+                }
             }
             catch (Exception ex)
             {
                 // Handle exceptions
                 MessageBox.Show("No user found");
-                return false;
+                return -1;
             }
 
         }
+
+        public async void CreateAccount(string username, string password)
+        {
+            try
+            {
+                var account = new Users
+                {
+                    username = username,
+                    password = password
+                };
+
+                await client.From<Users>().Insert(account);
+                MessageBox.Show("Account created!");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Failed to create account");
+            }
+        }
+
 
         public async Task<List<Concerts>> FetchConcerts(int userID)
         {
