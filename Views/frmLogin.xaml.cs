@@ -23,5 +23,13 @@ namespace GigTracker.Views
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Password; // For PasswordBox, use Password property
+
+           
+        }
     }
 }

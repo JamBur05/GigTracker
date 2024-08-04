@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GigTracker")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0a4d78e544c557b6f9e77fb70a05b4c35922f6fd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+68cb6b425ff46508ae5e8946e2dd9b099706d581")]
 [assembly: System.Reflection.AssemblyProductAttribute("GigTracker")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GigTracker")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
