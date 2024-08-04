@@ -35,7 +35,7 @@ namespace GigTracker.Views
             {
                 supabaseConnection = new SupabaseConnection();
                 await supabaseConnection.InitializeClient(); // Ensure this is an async method
-                await supabaseConnection.FetchConcert(); // Ensure this is awaited
+                //await supabaseConnection.FetchConcert(); // Ensure this is awaited
             }
             catch (Exception ex)
             {
