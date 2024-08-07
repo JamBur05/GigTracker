@@ -1,4 +1,5 @@
-﻿using GigTracker.Services;
+﻿using GigTracker.Models;
+using GigTracker.Services;
 using Supabase.Gotrue;
 using System;
 using System.Collections.Generic;
@@ -66,6 +67,21 @@ namespace GigTracker.Views
             frmAddConcert frmAddConcert = new frmAddConcert(username, userID);
             frmAddConcert.Show();
             this.Close();
+        }
+
+        private void btnDeleteEntry_Click(object sender, RoutedEventArgs e)
+        {
+            Concerts selectedConcert = (Concerts)ConcertsDataGrid.SelectedItem;
+
+            if(selectedConcert != null )
+            {
+                supabaseConnection.DeleteConcert(selectedConcert);
+            }
+            else
+            {
+                MessageBox.Show("No concert selected!");
+            }
+           
         }
     }
 }

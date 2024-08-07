@@ -15,6 +15,7 @@
                 <DataGridTextColumn Header="dATE" Binding="{Binding date}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnNewConcert" Content="Add New Concert"  Margin="589,385,80,21" Click="btnNewConcert_Click"/>
+        <Button x:Name="btnNewConcert" Content="Add New Concert" Click="btnNewConcert_Click" HorizontalAlignment="Left" Margin="609,382,0,0" VerticalAlignment="Top" Height="30" Width="123"/>
+        <Button x:Name="btnDeletEntry" Content="Delete Entry" Click="btnDeleteEntry_Click" HorizontalAlignment="Left" Margin="52,382,0,0" VerticalAlignment="Top" Height="30" Width="122"/>
     </Grid>
 </Window>

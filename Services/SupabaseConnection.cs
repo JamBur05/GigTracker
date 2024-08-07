@@ -81,7 +81,18 @@ namespace GigTracker.Services
         {
             try
             {
-                var account = new Users
+                // Search if username alread taken
+                var userSearch = await client
+                    .From<Users>()
+                    .Where(u => u.username == username)
+                    .Get();
+                if (userSearch.Models != null && userSearch.Models.Any())
+                {
+                    MessageBox.Show("Username already taken!");
+                    return;
+                }
+
+                    var account = new Users
                 {
                     username = username,
                     password = password
@@ -95,6 +106,29 @@ namespace GigTracker.Services
                 MessageBox.Show("Failed to create account" + ex.Message);
             }
         }
+
+        public async void DeleteConcert(Concerts concert)
+        {
+            try
+            {
+                // Delete relationship between user and concert
+                await client
+                    .From<UserConcerts>()
+                    .Where(x => x.concertID == concert.id)
+                    .Delete();
+
+                // Delete concert
+                await client
+                    .From<Concerts>()
+                    .Where(x => x.id == concert.id)
+                    .Delete();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Failed to delete account" + ex.Message);
+            }
+        }
+
 
         private async Task CreateUserConcertRelationship(int userID, int concertID)
         {
