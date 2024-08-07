@@ -38,7 +38,7 @@ namespace GigTracker.Views
             string bandName = txtBandName.Text;
             string venueName = txtVenueName.Text;
             DateTime dateTime = txtDate.SelectedDate.Value;
-            supabaseConnection.AddConcert(userID, bandName, venueName, dateTime);
+            await supabaseConnection.AddConcert(userID, bandName, venueName, dateTime);
 
             MainWindow main = new MainWindow(username, userID);
             main.Show();

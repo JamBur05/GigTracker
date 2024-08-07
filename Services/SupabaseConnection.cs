@@ -140,7 +140,7 @@ namespace GigTracker.Services
             await client.From<UserConcerts>().Insert(newRelationship);
         }
 
-        public async void AddConcert(int userID, string bandName, string venueName, DateTime date)
+        public async Task AddConcert(int userID, string bandName, string venueName, DateTime date)
         {
             try
             {
@@ -175,6 +175,24 @@ namespace GigTracker.Services
             }
         }
 
+        public async Task UpdateConcert(Concerts selectedConcert, Concerts newConcert)
+        {
+            try
+            {
+                var update = await client
+                    .From<Concerts>()
+                    .Where(x => x.id == selectedConcert.id)
+                    .Set(x => x.BandName, newConcert.BandName)
+                    .Set(x => x.VenueName, newConcert.VenueName)
+                    .Set(x => x.Date, newConcert.Date)
+                    .Update();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error updating concert" + ex.Message);
+            }
+        }
+
         public async Task<List<Concerts>> FetchConcerts(int userID)
         {
             try
@@ -188,13 +206,11 @@ namespace GigTracker.Services
                 // Check if the result contains models
                 if (userConcertsResult.Models == null || !userConcertsResult.Models.Any())
                 {
-                    MessageBox.Show("No UserConcerts records found.");
                     return new List<Concerts>(); // Return an empty list if no records are found
                 }
 
                 // Log the number of records fetched
                 var userConcertsCount = userConcertsResult.Models.Count;
-                MessageBox.Show($"Number of UserConcerts records found: {userConcertsCount}");
 
                 // Extract the list of concert IDs
                 var concertIDs = userConcertsResult.Models.Select(uc => uc.concertID).ToList();

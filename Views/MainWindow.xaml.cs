@@ -76,12 +76,28 @@ namespace GigTracker.Views
             if(selectedConcert != null )
             {
                 supabaseConnection.DeleteConcert(selectedConcert);
+                DisplayTable(userID);
             }
             else
             {
                 MessageBox.Show("No concert selected!");
             }
            
+        }
+
+        private void btnUpdateEntry_Click(object sender, RoutedEventArgs e)
+        {
+            Concerts selectedConcert = (Concerts)ConcertsDataGrid.SelectedItem;
+            if (selectedConcert != null)
+            {
+                frmUpdateEntry update = new frmUpdateEntry(selectedConcert, username, userID);
+                update.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("No concert selected!");
+            }
         }
     }
 }

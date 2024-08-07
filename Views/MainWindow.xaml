@@ -12,10 +12,11 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Band" Binding="{Binding BandName}" />
                 <DataGridTextColumn Header="Venue" Binding="{Binding VenueName}" />
-                <DataGridTextColumn Header="dATE" Binding="{Binding date}" />
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}" />
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="btnNewConcert" Content="Add New Concert" Click="btnNewConcert_Click" HorizontalAlignment="Left" Margin="609,382,0,0" VerticalAlignment="Top" Height="30" Width="123"/>
-        <Button x:Name="btnDeletEntry" Content="Delete Entry" Click="btnDeleteEntry_Click" HorizontalAlignment="Left" Margin="52,382,0,0" VerticalAlignment="Top" Height="30" Width="122"/>
+        <Button x:Name="btnDeleteEntry" Content="Delete Entry" Click="btnDeleteEntry_Click" HorizontalAlignment="Left" Margin="52,382,0,0" VerticalAlignment="Top" Height="30" Width="122"/>
+        <Button x:Name="btnUpdateEntry" Content="Update Entry" Click="btnUpdateEntry_Click" HorizontalAlignment="Left" Margin="336,382,0,0" VerticalAlignment="Top" Height="30" Width="122"/>
     </Grid>
 </Window>
