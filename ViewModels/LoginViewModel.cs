@@ -25,7 +25,7 @@ namespace GigTracker.ViewModels
         private Users currentUser;
         public ICommand LoginCommand { get; }
         public ICommand RegisterCommand { get; }
-        public ICommand NavigateCommand { get; }
+        //public ICommand NavigateCommand { get; } Is this needed?
 
         public Users CurrentUser
         {
@@ -58,9 +58,10 @@ namespace GigTracker.ViewModels
         public LoginViewModel(NavigationService homeViewNavigationService)
         {
             InitializeAsync();
-            NavigateCommand = new NavigateCommand(homeViewNavigationService);
+            //NavigateCommand = new NavigateCommand(homeViewNavigationService); Is this needed?
             LoginCommand = new LoginCommand(this, homeViewNavigationService);
-           RegisterCommand = new RegisterCommand();
+            // TODO: IMPLEMENT REGISTER
+            RegisterCommand = new RegisterCommand();
         }
 
 

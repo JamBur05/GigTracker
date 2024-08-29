@@ -50,6 +50,10 @@ namespace GigTracker
         {
             return new HomeViewModel(_currentUser);
         }
+        private AddConcertViewModel CreateAddConcertViewModel()
+        {
+            return new AddConcertViewModel();
+        }
 
     }
 }

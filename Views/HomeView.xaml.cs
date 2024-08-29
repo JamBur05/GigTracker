@@ -25,46 +25,5 @@ namespace GigTracker.Views
         {
             InitializeComponent();
         }
-
-        private async void btnNewConcert_Click(object sender, RoutedEventArgs e)
-        {
-            //frmAddConcert frmAddConcert = new frmAddConcert(viewModel.Username, viewModel.userID);
-            //frmAddConcert.Show();
-        }
-
-        private async void btnDeleteEntry_Click(object sender, RoutedEventArgs e)
-        {
-            //var selectedConcert = (Concerts)ConcertsDataGrid.SelectedItem;
-
-            //if (selectedConcert != null)
-            //{
-            //    viewModel.DeleteConcert(selectedConcert);
-            //    await viewModel.LoadConcerts(); // Refresh the data grid
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No concert selected!");
-            //}
-        }
-
-        private void btnUpdateEntry_Click(object sender, RoutedEventArgs e)
-        {
-            //var selectedConcert = (Concerts)ConcertsDataGrid.SelectedItem;
-            //if (selectedConcert != null)
-            //{
-            //    frmUpdateEntry update = new frmUpdateEntry(selectedConcert, viewModel.Username, viewModel.userID);
-            //    update.Show();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("No concert selected!");
-            //}
-        }
-
-        private void btnSpotify_Click(object sender, RoutedEventArgs e)
-        {
-            //frmSpotify spotify = new frmSpotify();
-            //spotify.Show();
-        }
     }
 }

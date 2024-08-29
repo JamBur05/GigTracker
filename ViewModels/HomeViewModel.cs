@@ -1,4 +1,5 @@
-﻿using GigTracker.Interfaces;
+﻿using GigTracker.Commands;
+using GigTracker.Interfaces;
 using GigTracker.Models;
 using GigTracker.Services;
 using Supabase.Gotrue;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace GigTracker.ViewModels
 {
@@ -18,6 +20,7 @@ namespace GigTracker.ViewModels
         private SupabaseConnection supabaseConnection;
         public int userID { get; private set; }
         private string username;
+        public ICommand AddConcertNavigateCommand { get; }
 
         public ObservableCollection<Concerts> Concerts { get; set; } = new ObservableCollection<Concerts>();
 
@@ -34,6 +37,7 @@ namespace GigTracker.ViewModels
         {
             InitializeAsync();
             MessageBox.Show($"{currentUser.id}");
+            //AddConcertNavigateCommand = new AddConcertNavigateCommand();
 
             userID = currentUser.id;
             username = currentUser.username;
