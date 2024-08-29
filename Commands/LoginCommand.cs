@@ -46,19 +46,15 @@ namespace GigTracker.Commands
             if (_currentUser != null)
             {
                 _viewModel.CurrentUser = _currentUser;
-                OnLoginSuccess(new LoginSuccessEventArgs(_currentUser));
-                //_homeViewNavigationService.Navigate();
+                ((App)Application.Current).CurrentUser = _currentUser;
+
+                _homeViewNavigationService.Navigate();
             }
             else
             {
                 MessageBox.Show("No user found");
             }
 
-        }
-
-        protected virtual void OnLoginSuccess(LoginSuccessEventArgs e)
-        {
-            LoginSuccess?.Invoke(this, e);
         }
     }
 

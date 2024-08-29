@@ -45,3 +45,5 @@ C:\Users\James\source\repos\GigTracker\obj\Debug\net6.0-windows\refint\GigTracke
 C:\Users\James\source\repos\GigTracker\obj\Debug\net6.0-windows\GigTracker.pdb
 C:\Users\James\source\repos\GigTracker\obj\Debug\net6.0-windows\GigTracker.genruntimeconfig.cache
 C:\Users\James\source\repos\GigTracker\obj\Debug\net6.0-windows\ref\GigTracker.dll
+C:\Users\James\source\repos\GigTracker\obj\Debug\net6.0-windows\Views\AddConcert.g.cs
+C:\Users\James\source\repos\GigTracker\obj\Debug\net6.0-windows\Views\AddConcert.baml

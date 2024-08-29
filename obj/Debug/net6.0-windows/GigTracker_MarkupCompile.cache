@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\James\source\repos\GigTracker\App.xaml
-3787016905
+4-404597698
 
-21820308316
+24676378295
 213-417864361
-Views\HomeView.xaml;Views\LoginRegister.xaml;Views\MainWindow.xaml;
+Views\AddConcert.xaml;Views\HomeView.xaml;Views\LoginRegister.xaml;Views\MainWindow.xaml;
 
 False
 

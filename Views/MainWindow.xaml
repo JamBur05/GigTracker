@@ -16,6 +16,9 @@
             <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
                 <views:HomeView/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodel:AddConcertViewModel}">
+                <views:AddConcert/>
+            </DataTemplate>
 
         </Grid.Resources>
 
