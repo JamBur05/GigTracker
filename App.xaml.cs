@@ -1,4 +1,6 @@
-﻿using GigTracker.Stores;
+﻿using GigTracker.Models;
+using GigTracker.Services;
+using GigTracker.Stores;
 using GigTracker.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -17,6 +19,16 @@ namespace GigTracker
     {
         private readonly NavigationStore _navigationStore;
 
+        private Users _currentUser;
+
+        public Users CurrentUser
+        {
+            set
+            {
+                _currentUser = value;
+            }
+        }
+
         public App()
         {
             _navigationStore = new NavigationStore();
@@ -24,7 +36,7 @@ namespace GigTracker
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            _navigationStore.CurrentViewModel = new LoginViewModel(_navigationStore); 
+            _navigationStore.CurrentViewModel = new LoginViewModel(new NavigationService(_navigationStore, CreateHomeViewModel)); 
             MainWindow = new MainWindow()
             {
                 DataContext = new MainViewModel(_navigationStore)
@@ -33,5 +45,11 @@ namespace GigTracker
 
             base.OnStartup(e);
         }
+
+        private HomeViewModel CreateHomeViewModel()
+        {
+            return new HomeViewModel(_currentUser);
+        }
+
     }
 }

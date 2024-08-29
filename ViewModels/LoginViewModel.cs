@@ -55,11 +55,11 @@ namespace GigTracker.ViewModels
             }
         }
 
-        public LoginViewModel(NavigationStore navigationStore)
+        public LoginViewModel(NavigationService homeViewNavigationService)
         {
             InitializeAsync();
-            NavigateCommand = new NavigateCommand(navigationStore);
-            LoginCommand = new LoginCommand(this);
+            NavigateCommand = new NavigateCommand(homeViewNavigationService);
+            LoginCommand = new LoginCommand(this, homeViewNavigationService);
             ((LoginCommand)LoginCommand).LoginSuccess += OnLoginSuccess;
            RegisterCommand = new RegisterCommand();
         }
@@ -70,7 +70,8 @@ namespace GigTracker.ViewModels
             if (NavigateCommand is NavigateCommand navigateCommand)
             {
                 // Set the current user on the NavigateCommand
-                navigateCommand.CurrentUser = e.User;
+
+                ((App)Application.Current).CurrentUser = e.User;
 
                 // Check if the command can be executed and execute it
                 if (navigateCommand.CanExecute(null))

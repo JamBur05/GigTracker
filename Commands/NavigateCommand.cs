@@ -1,4 +1,6 @@
-﻿using GigTracker.Models;
+﻿using GigTracker.Interfaces;
+using GigTracker.Models;
+using GigTracker.Services;
 using GigTracker.Stores;
 using GigTracker.ViewModels;
 using GigTracker.Views;
@@ -13,25 +15,16 @@ namespace GigTracker.Commands
 {
     internal class NavigateCommand : CommandBase
     {
-        private readonly NavigationStore _navigationStore;
-        private Users _currentUser;
+        private readonly NavigationService _navigationService;
 
-        public Users CurrentUser
+        public NavigateCommand(NavigationService navigationService)
         {
-            set
-            {
-                _currentUser = value;
-            }
-        }
-
-        public NavigateCommand(NavigationStore navigationStore)
-        {
-            _navigationStore = navigationStore;
+            _navigationService = navigationService;
         }
         // Users needs changing
         public override void Execute(object? parameter)
         {
-            _navigationStore.CurrentViewModel = new HomeViewModel(_currentUser);
+            _navigationService.Navigate();
         }
     }
 }

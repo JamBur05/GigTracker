@@ -13,7 +13,7 @@ using System.Windows;
 
 namespace GigTracker.ViewModels
 {
-    internal class HomeViewModel : BaseViewModel
+    public class HomeViewModel : BaseViewModel
     {
         private SupabaseConnection supabaseConnection;
         public int userID { get; private set; }

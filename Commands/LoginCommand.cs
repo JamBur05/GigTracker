@@ -14,12 +14,14 @@ namespace GigTracker.Commands
     internal class LoginCommand : CommandBase
     {
         private readonly LoginViewModel _viewModel;
+        private readonly NavigationService _homeViewNavigationService;
         private SupabaseConnection supabaseConnection;
         public event EventHandler<LoginSuccessEventArgs>? LoginSuccess;
 
-        public LoginCommand(LoginViewModel viewModel)
+        public LoginCommand(LoginViewModel viewModel, NavigationService homeViewNavigationService)
         {
             _viewModel = viewModel;
+            _homeViewNavigationService = homeViewNavigationService;
             InitializeAsync();
         }
 
@@ -45,6 +47,7 @@ namespace GigTracker.Commands
             {
                 _viewModel.CurrentUser = _currentUser;
                 OnLoginSuccess(new LoginSuccessEventArgs(_currentUser));
+                //_homeViewNavigationService.Navigate();
             }
             else
             {
