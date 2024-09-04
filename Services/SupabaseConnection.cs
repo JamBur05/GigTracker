@@ -105,7 +105,7 @@ namespace GigTracker.Services
             }
         }
 
-        public async void DeleteConcert(Concerts concert)
+        public async Task DeleteConcert(Concerts concert)
         {
             try
             {

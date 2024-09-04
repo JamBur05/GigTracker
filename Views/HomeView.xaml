@@ -9,7 +9,7 @@
              Background="LightSlateGray">
     <Grid>
         <TextBlock x:Name="txtUserDisplay" HorizontalAlignment="Left" Margin="20,19,0,0" TextWrapping="Wrap" Text="Hi Username!" VerticalAlignment="Top" Height="29" Width="186" FontSize="20"/>
-        <DataGrid x:Name="ConcertsDataGrid" AutoGenerateColumns="False" Margin="39,53,44,68" ItemsSource="{Binding Concerts}">
+        <DataGrid x:Name="ConcertsDataGrid" AutoGenerateColumns="False" Margin="39,53,44,68" ItemsSource="{Binding Concerts}" SelectedItem="{Binding SelectedConcert, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Band" Binding="{Binding BandName}" />
                 <DataGridTextColumn Header="Venue" Binding="{Binding VenueName}" />
@@ -18,7 +18,8 @@
         </DataGrid>
         <Button x:Name="btnNewConcert" Content="Add New Concert" HorizontalAlignment="Left" Margin="609,382,0,0" VerticalAlignment="Top" Height="30" Width="123"
                 Command="{Binding AddConcertNavigateCommand}"/>
-        <Button x:Name="btnDeleteEntry" Content="Delete Entry" HorizontalAlignment="Left" Margin="52,382,0,0" VerticalAlignment="Top" Height="30" Width="122"/>
+        <Button x:Name="btnDeleteEntry" Content="Delete Entry" HorizontalAlignment="Left" Margin="52,382,0,0" VerticalAlignment="Top" Height="30" Width="122"
+                Command="{Binding DeleteConcertCommand}"/>
         <Button x:Name="btnUpdateEntry" Content="Update Entry" HorizontalAlignment="Left" Margin="239,382,0,0" VerticalAlignment="Top" Height="30" Width="122"/>
         <Button x:Name="btnSpotify" Content="Connect to Spotify" HorizontalAlignment="Left" Margin="443,382,0,0" VerticalAlignment="Top" Height="30" Width="123"/>
     </Grid>

@@ -20,9 +20,24 @@ namespace GigTracker.ViewModels
         private SupabaseConnection supabaseConnection;
         public int userID { get; private set; }
         private string username;
+        private Concerts selectedConcert;
         public ICommand AddConcertNavigateCommand { get; }
+        public ICommand DeleteConcertCommand { get; }
 
         public ObservableCollection<Concerts> Concerts { get; set; } = new ObservableCollection<Concerts>();
+
+        public Concerts SelectedConcert
+        {
+            get 
+            { 
+                return selectedConcert;
+            }
+            set
+            {
+                selectedConcert = value;
+                OnPropertyChanged(nameof(SelectedConcert));
+            }
+        }
 
         public string Username
         {
@@ -40,6 +55,7 @@ namespace GigTracker.ViewModels
 
             // Navigate to Add Concert view
             AddConcertNavigateCommand = new NavigateCommand(addConcertNavigationService);
+            DeleteConcertCommand = new DeleteConcertCommand(this);
 
             userID = currentUser.id;
             username = currentUser.username;
