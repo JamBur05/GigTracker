@@ -59,7 +59,9 @@ namespace GigTracker.ViewModels
         {
             InitializeAsync();
             //NavigateCommand = new NavigateCommand(homeViewNavigationService); Is this needed?
+
             LoginCommand = new LoginCommand(this, homeViewNavigationService);
+            
             // TODO: IMPLEMENT REGISTER
             RegisterCommand = new RegisterCommand();
         }

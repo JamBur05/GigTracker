@@ -11,6 +11,9 @@ using System.Windows;
 
 namespace GigTracker.Commands
 {
+    /// <summary>
+    /// Command for processing logins, will navigate to home viewmodel if succesfull
+    /// </summary>
     internal class LoginCommand : CommandBase
     {
         private readonly LoginViewModel _viewModel;

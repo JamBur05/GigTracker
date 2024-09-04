@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
+
 namespace GigTracker
 {
     /// <summary>
@@ -48,7 +49,8 @@ namespace GigTracker
 
         private HomeViewModel CreateHomeViewModel()
         {
-            return new HomeViewModel(_currentUser);
+            var addConcertNavigationService = new NavigationService(_navigationStore, CreateAddConcertViewModel);
+            return new HomeViewModel(_currentUser, addConcertNavigationService);
         }
         private AddConcertViewModel CreateAddConcertViewModel()
         {

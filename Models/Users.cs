@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace GigTracker.Models
 {
+    /// <summary>
+    /// Users database table
+    /// </summary>
     public class Users : BaseModel
     {
         [PrimaryKey("id", false)]

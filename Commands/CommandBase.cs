@@ -7,6 +7,9 @@ using System.Windows.Input;
 
 namespace GigTracker.Commands
 {
+    /// <summary>
+    /// Provides a base implementation of the ICommand interface for creating commands
+    /// </summary>
     internal abstract class CommandBase : ICommand
     {
         public event EventHandler? CanExecuteChanged;

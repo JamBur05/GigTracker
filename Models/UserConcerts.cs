@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace GigTracker.Models
 {
+    /// <summary>
+    /// UserConcert database table
+    /// </summary>
     public class UserConcerts : BaseModel
     {
         [PrimaryKey("UserConcertID", false)]
