@@ -161,6 +161,7 @@ namespace GigTracker.Services
 
                     // Now create the relationship in the UserConcerts table
                     await CreateUserConcertRelationship(userID, concertID);
+                    MessageBox.Show("Concert added!");
                 }
                 else
                 {
@@ -171,6 +172,7 @@ namespace GigTracker.Services
             {
                 MessageBox.Show("Error adding new concert" + ex.Message);
             }
+            
         }
 
         public async Task UpdateConcert(Concerts selectedConcert, Concerts newConcert)

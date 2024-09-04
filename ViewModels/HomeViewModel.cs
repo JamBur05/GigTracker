@@ -33,18 +33,16 @@ namespace GigTracker.ViewModels
                 OnPropertyChanged(nameof(Username));
             }
         }
-        public HomeViewModel(Users currentUser, NavigationService navigationService)
+        public HomeViewModel(Users currentUser, NavigationService addConcertNavigationService)
         {
             InitializeAsync();
-            MessageBox.Show($"{currentUser.id}");
+            //MessageBox.Show($"{currentUser.id}");
 
             // Navigate to Add Concert view
-            AddConcertNavigateCommand = new NavigateCommand(navigationService);
+            AddConcertNavigateCommand = new NavigateCommand(addConcertNavigationService);
 
             userID = currentUser.id;
             username = currentUser.username;
-
-            LoadConcerts();
         }
 
         private async void InitializeAsync()

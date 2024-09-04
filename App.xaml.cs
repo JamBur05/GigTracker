@@ -28,6 +28,10 @@ namespace GigTracker
             {
                 _currentUser = value;
             }
+            get 
+            {
+                return _currentUser; 
+            }
         }
 
         public App()
@@ -54,7 +58,8 @@ namespace GigTracker
         }
         private AddConcertViewModel CreateAddConcertViewModel()
         {
-            return new AddConcertViewModel();
+            var returnHomeNavigationService = new NavigationService(_navigationStore, CreateHomeViewModel);
+            return new AddConcertViewModel(returnHomeNavigationService);
         }
 
     }

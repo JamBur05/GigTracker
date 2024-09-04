@@ -45,6 +45,7 @@ namespace GigTracker.ViewModels
             }
         }
 
+
         public string Password
         {
             get { return password; }

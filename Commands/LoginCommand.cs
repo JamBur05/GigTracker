@@ -12,7 +12,7 @@ using System.Windows;
 namespace GigTracker.Commands
 {
     /// <summary>
-    /// Command for processing logins, will navigate to home viewmodel if succesfull
+    /// Command for processing logins, will navigate to home viewmodel if successful
     /// </summary>
     internal class LoginCommand : CommandBase
     {

@@ -14,10 +14,17 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="0" x:Name="txtBandName" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="Band name" VerticalAlignment="Top" Width="257" Margin="0,100,0,0"/>
-        <TextBox Grid.Row="1" x:Name="txtVenueName" HorizontalAlignment="Center"  TextWrapping="Wrap" Text="Venue name" VerticalAlignment="Top" Width="257" Margin="0,30,0,0"/>
-        <DatePicker Grid.Row="2" x:Name="txtDate" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0"/>
-        <Button Grid.Row="3" Content="Add Concert" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="0,80,0,0"
+        <TextBlock Grid.Row="0"  Text="Band Name:" Margin="150,100,0,0"/>
+        <TextBox Grid.Row="0" x:Name="txtBandName" HorizontalAlignment="Center"  TextWrapping="Wrap" VerticalAlignment="Top" Width="257" Margin="0,100,0,0"
+                 Text="{Binding BandName, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Grid.Row="1"  Text="Venue Name:" Margin="150,30,0,0"/>
+        <TextBox Grid.Row="1" x:Name="txtVenueName" HorizontalAlignment="Center"  TextWrapping="Wrap"  VerticalAlignment="Top" Width="257" Margin="0,30,0,0"
+                 Text="{Binding VenueName, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker Grid.Row="2" x:Name="txtDate" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0"
+                    SelectedDate="{Binding ConcertDate, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Grid.Row="3" Content="Add Concert" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="150,80,0,0"
                 Command="{Binding AddConcertCommand}"/>
+        <Button Grid.Row="3" Content="Return Home" HorizontalAlignment="Center"  VerticalAlignment="Top" Margin="-150,80,0,0"
+        Command="{Binding ReturnCommand}"/>
     </Grid>
 </UserControl>
