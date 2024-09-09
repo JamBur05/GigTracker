@@ -6,7 +6,7 @@ on:
       - "gig-tracker/v*"
 
 env:
-    PROJECT_PATH: GigTracker\GigTracker.csproj
+    PROJECT_PATH: GigTracker/GigTracker.csproj
 
 jobs:
   deploy:
