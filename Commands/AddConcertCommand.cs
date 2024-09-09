@@ -25,7 +25,7 @@ namespace GigTracker.Commands
             InitializeAsync();
         }
 
-        private async void InitializeAsync()
+        private async Task InitializeAsync()
         {
             try
             {

@@ -18,8 +18,6 @@ namespace GigTracker.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        SupabaseConnection supabaseConnection;
-
         private string username;
         private string password;
         private Users currentUser;
@@ -45,7 +43,6 @@ namespace GigTracker.ViewModels
             }
         }
 
-
         public string Password
         {
             get { return password; }
@@ -58,45 +55,11 @@ namespace GigTracker.ViewModels
 
         public LoginViewModel(NavigationService homeViewNavigationService)
         {
-            InitializeAsync();
             //NavigateCommand = new NavigateCommand(homeViewNavigationService); Is this needed?
 
             LoginCommand = new LoginCommand(this, homeViewNavigationService);
             
-            // TODO: IMPLEMENT REGISTER
-            RegisterCommand = new RegisterCommand();
-        }
-
-
-        private async void InitializeAsync()
-        {
-            try
-            {
-                supabaseConnection = new SupabaseConnection();
-                await supabaseConnection.InitializeClient(); // Ensure this is an async method
-                //await supabaseConnection.FetchConcert(); // Ensure this is awaited
-            }
-            catch (Exception ex)
-            {
-                // Handle exceptions or log them
-                MessageBox.Show($"Error initializing Supabase connection: {ex.Message}");
-            }
-        }
-
-
-        private async Task Register()
-        {
-            await supabaseConnection.CreateAccount(username, password);
-        }
-
-        public bool CanExecute(object? parameter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Execute(object? parameter)
-        {
-            throw new NotImplementedException();
+            RegisterCommand = new RegisterCommand(this);
         }
     }
 }

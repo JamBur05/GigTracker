@@ -51,31 +51,46 @@ namespace GigTracker.Services
                 var userSearch = await client
                     .From<Users>()
                     .Where(u => u.username == username)
-                    .Where(u => u.password == password)
                     .Get();
 
                 // Check if any user is found
                 if (userSearch.Models != null && userSearch.Models.Any())
                 {
-                    // Return the first found user
-                    return userSearch.Models.First();
+                    var foundUser = userSearch.Models.First();
+
+                    // Extract the salt from the database
+                    string storedSalt = foundUser.user_salt;
+
+                    password += storedSalt;
+
+
+                    // Compare the hashed password with the one stored in the database
+                    if (PasswordService.VerifyPassword(password, foundUser.password, storedSalt))
+                    {
+                        // Password matches return the user
+                        return foundUser;
+                    }
+                    else
+                    {
+                        // Password wrong return null or indicate failure
+                        return null;
+                    }
                 }
                 else
                 {
-                    // No user found, return null
+                    // No user found with the given username return null
                     return null;
                 }
             }
             catch (Exception ex)
             {
-                // Handle exceptions, e.g., logging the error
                 MessageBox.Show("An error occurred: " + ex.Message);
                 return null;
             }
         }
 
 
-        public async Task CreateAccount(string username, string password)
+        public async Task CreateAccount(string username, string password, string userSalt)
         {
             try
             {
@@ -90,10 +105,11 @@ namespace GigTracker.Services
                     return;
                 }
 
-                    var account = new Users
+                var account = new Users
                 {
                     username = username,
-                    password = password
+                    password = password,
+                    user_salt = userSalt
                 };
 
                 await client.From<Users>().Insert(account);

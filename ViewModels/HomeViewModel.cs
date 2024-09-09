@@ -88,9 +88,9 @@ namespace GigTracker.ViewModels
             }
         }
 
-        public void DeleteConcert(Concerts concert)
+        public async void DeleteConcert(Concerts concert)
         {
-            supabaseConnection.DeleteConcert(concert);
+            await supabaseConnection.DeleteConcert(concert);
             Concerts.Remove(concert);
         }
     }

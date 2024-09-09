@@ -19,5 +19,7 @@ namespace GigTracker.Models
         public string username { get; set; }
         [Column("password")]
         public string password { get; set; }
+        [Column("user_salt")]
+        public string user_salt { get; set; }
     }
 }
