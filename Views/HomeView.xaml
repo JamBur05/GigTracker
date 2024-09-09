@@ -8,7 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800"
              Background="LightSlateGray">
     <Grid>
-        <TextBlock x:Name="txtUserDisplay" HorizontalAlignment="Left" Margin="20,19,0,0" TextWrapping="Wrap" Text="Hi Username!" VerticalAlignment="Top" Height="29" Width="186" FontSize="20"/>
+        <TextBlock x:Name="txtUserDisplay" HorizontalAlignment="Left" Margin="20,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="186" FontSize="20"
+                   Text="{Binding DisplayText, UpdateSourceTrigger=PropertyChanged}"/>
         <DataGrid x:Name="ConcertsDataGrid" AutoGenerateColumns="False" Margin="39,53,44,68" ItemsSource="{Binding Concerts}" SelectedItem="{Binding SelectedConcert, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Band" Binding="{Binding BandName}" />
