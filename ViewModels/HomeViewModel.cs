@@ -15,6 +15,9 @@ using System.Windows.Input;
 
 namespace GigTracker.ViewModels
 {
+    /// <summary>
+    /// ViewModel for home page, displays database view and allows user to select options for modifying database etc...
+    /// </summary>
     public class HomeViewModel : BaseViewModel
     {
         private SupabaseConnection supabaseConnection;
