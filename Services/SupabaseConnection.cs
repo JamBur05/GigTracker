@@ -94,7 +94,7 @@ namespace GigTracker.Services
         {
             try
             {
-                // Search if username alread taken
+                // Search if username already taken
                 var userSearch = await client
                     .From<Users>()
                     .Where(u => u.username == username)
