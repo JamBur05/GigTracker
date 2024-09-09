@@ -186,8 +186,10 @@ namespace GigTracker.Services
                     .Set(x => x.VenueName, newConcert.VenueName)
                     .Set(x => x.Date, newConcert.Date)
                     .Update();
+
+                MessageBox.Show("Concert Updated!");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error updating concert" + ex.Message);
             }

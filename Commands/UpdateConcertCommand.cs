@@ -1,5 +1,4 @@
-﻿using GigTracker.Interfaces;
-using GigTracker.Models;
+﻿using GigTracker.Models;
 using GigTracker.Services;
 using GigTracker.ViewModels;
 using System;
@@ -11,17 +10,18 @@ using System.Windows;
 
 namespace GigTracker.Commands
 {
-    /// <summary>
-    /// Delete a selected concert from the users account
-    /// </summary>
-    public class DeleteConcertCommand : CommandBase
+    public class UpdateConcertCommand : CommandBase
     {
-        private HomeViewModel currentViewModel;
-        private Concerts currentConcert;
+        private readonly Concerts _selectedConcert;
+        private readonly UpdateConcertViewModel _viewModel;
+        private Concerts _newConcert;
+        private int userID;
         private SupabaseConnection supabaseConnection;
-        public DeleteConcertCommand(HomeViewModel viewModel) 
+
+        public UpdateConcertCommand(UpdateConcertViewModel viewModel, Concerts selectedConcert) 
         {
-            currentViewModel = viewModel;
+            _viewModel = viewModel;
+            _selectedConcert = selectedConcert;
             InitializeAsync();
         }
 
@@ -41,10 +41,15 @@ namespace GigTracker.Commands
 
         public override async void Execute(object? parameter)
         {
-            currentConcert = currentViewModel.SelectedConcert;
+            _newConcert = new Concerts()
+            {
+                BandName = _viewModel.BandName,
+                VenueName = _viewModel.VenueName,
+                Date = _viewModel.ConcertDate
+            };
 
-            await supabaseConnection.DeleteConcert(currentConcert);
-            await currentViewModel.LoadConcerts();
+
+            await supabaseConnection.UpdateConcert(_selectedConcert, _newConcert);
         }
     }
 }

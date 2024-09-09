@@ -23,6 +23,7 @@ namespace GigTracker.ViewModels
         private Concerts selectedConcert;
         public ICommand AddConcertNavigateCommand { get; }
         public ICommand DeleteConcertCommand { get; }
+        public ICommand UpdateConcertNavigateCommand { get; }
 
         public ObservableCollection<Concerts> Concerts { get; set; } = new ObservableCollection<Concerts>();
 
@@ -48,7 +49,7 @@ namespace GigTracker.ViewModels
                 OnPropertyChanged(nameof(Username));
             }
         }
-        public HomeViewModel(Users currentUser, NavigationService addConcertNavigationService)
+        public HomeViewModel(Users currentUser, NavigationService addConcertNavigationService, NavigationService updateConcertNavigationService)
         {
             InitializeAsync();
             //MessageBox.Show($"{currentUser.id}");
@@ -56,6 +57,7 @@ namespace GigTracker.ViewModels
             // Navigate to Add Concert view
             AddConcertNavigateCommand = new NavigateCommand(addConcertNavigationService);
             DeleteConcertCommand = new DeleteConcertCommand(this);
+            UpdateConcertNavigateCommand = new UpdateConcertNavigation(updateConcertNavigationService, this);
 
             userID = currentUser.id;
             username = currentUser.username;

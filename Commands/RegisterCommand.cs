@@ -9,7 +9,7 @@ namespace GigTracker.Commands
     /// <summary>
     /// Command to allow for users to register an account to the database.
     /// </summary>
-    internal class RegisterCommand : CommandBase
+    public class RegisterCommand : CommandBase
     {
         public override void Execute(object? parameter)
         {

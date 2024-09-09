@@ -16,6 +16,9 @@
     <Compile Update="Views\LoginRegister.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\UpdateConcert.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\AddConcert.xaml">
@@ -28,6 +31,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpdateConcert.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

@@ -21,7 +21,19 @@ namespace GigTracker
         private readonly NavigationStore _navigationStore;
 
         private Users _currentUser;
+        private Concerts _selectedConcert;
 
+        public Concerts SelectedConcert
+        {
+            set
+            {
+                _selectedConcert = value;
+            }
+            get
+            {
+                return _selectedConcert;
+            }
+        }
         public Users CurrentUser
         {
             set
@@ -54,12 +66,18 @@ namespace GigTracker
         private HomeViewModel CreateHomeViewModel()
         {
             var addConcertNavigationService = new NavigationService(_navigationStore, CreateAddConcertViewModel);
-            return new HomeViewModel(_currentUser, addConcertNavigationService);
+            var updateConcertHomeNavigationService = new NavigationService(_navigationStore, CreateUpdateConcertViewModel);
+            return new HomeViewModel(_currentUser, addConcertNavigationService, updateConcertHomeNavigationService);
         }
         private AddConcertViewModel CreateAddConcertViewModel()
         {
             var returnHomeNavigationService = new NavigationService(_navigationStore, CreateHomeViewModel);
             return new AddConcertViewModel(returnHomeNavigationService);
+        }
+        private UpdateConcertViewModel CreateUpdateConcertViewModel()
+        {
+            var returnHomeNavigationService = new NavigationService(_navigationStore, CreateHomeViewModel);
+            return new UpdateConcertViewModel(returnHomeNavigationService, _selectedConcert);
         }
 
     }

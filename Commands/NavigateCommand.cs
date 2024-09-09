@@ -17,7 +17,7 @@ namespace GigTracker.Commands
     ///  Implementation for all navigation commands.
     ///  Use a navigation service object with the relevant function to create the viewmodel in App.xaml.cs.
     /// </summary>
-    internal class NavigateCommand : CommandBase
+    public class NavigateCommand : CommandBase
     {
         private readonly NavigationService _navigationService;
         public NavigateCommand(NavigationService navigationService)

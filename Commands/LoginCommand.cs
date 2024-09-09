@@ -14,7 +14,7 @@ namespace GigTracker.Commands
     /// <summary>
     /// Command for processing logins, will navigate to home viewmodel if successful
     /// </summary>
-    internal class LoginCommand : CommandBase
+    public class LoginCommand : CommandBase
     {
         private readonly LoginViewModel _viewModel;
         private readonly NavigationService _homeViewNavigationService;

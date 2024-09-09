@@ -20,7 +20,8 @@
                 Command="{Binding AddConcertNavigateCommand}"/>
         <Button x:Name="btnDeleteEntry" Content="Delete Entry" HorizontalAlignment="Left" Margin="52,382,0,0" VerticalAlignment="Top" Height="30" Width="122"
                 Command="{Binding DeleteConcertCommand}"/>
-        <Button x:Name="btnUpdateEntry" Content="Update Entry" HorizontalAlignment="Left" Margin="239,382,0,0" VerticalAlignment="Top" Height="30" Width="122"/>
+        <Button x:Name="btnUpdateEntry" Content="Update Entry" HorizontalAlignment="Left" Margin="239,382,0,0" VerticalAlignment="Top" Height="30" Width="122"
+                Command="{Binding UpdateConcertNavigateCommand}"/>
         <Button x:Name="btnSpotify" Content="Connect to Spotify" HorizontalAlignment="Left" Margin="443,382,0,0" VerticalAlignment="Top" Height="30" Width="123"/>
     </Grid>
 </UserControl>

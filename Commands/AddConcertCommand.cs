@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace GigTracker.Commands
 {
-    internal class AddConcertCommand : CommandBase
+    public class AddConcertCommand : CommandBase
     {
         private readonly Users currentUser;
         private SupabaseConnection supabaseConnection;
