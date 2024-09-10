@@ -22,14 +22,10 @@ jobs:
           dotnet-version: '6.0.x'
 
       - name: Restore dependencies
-        working-directory: GigTracker
         run: dotnet restore GigTracker.csproj
 
       - name: Build the project
-        working-directory: GigTracker
         run: dotnet build GigTracker.csproj -c Release --no-restore
 
       - name: Publish the project
-        working-directory: GigTracker
         run: dotnet publish GigTracker.csproj -c Release --self-contained -r win-x64 -p:PublishSingleFile=true --no-build
-

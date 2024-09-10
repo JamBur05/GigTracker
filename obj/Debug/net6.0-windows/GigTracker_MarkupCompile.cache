@@ -1,20 +1,20 @@
 ﻿GigTracker
-
+1.0.0.0
 
 winexe
 C#
 .cs
-C:\Users\James\source\repos\GigTracker\obj\Debug\net6.0-windows\
+c:\Users\James\source\repos\GigTracker\obj\Debug\net6.0-windows\
 GigTracker
 none
 false
-TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\James\source\repos\GigTracker\App.xaml
+TRACE;DEBUG;NET;NET6_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+c:\Users\James\source\repos\GigTracker\App.xaml
 5-2137707828
 
-30-1941770565
+32-1947048804
 213-417864361
 Views\AddConcert.xaml;Views\HomeView.xaml;Views\LoginRegister.xaml;Views\MainWindow.xaml;Views\UpdateConcert.xaml;
 
-False
+True
 
