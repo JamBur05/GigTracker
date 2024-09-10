@@ -17,7 +17,7 @@ namespace GigTracker.Services
         private string supabaseApiKey;
         private Supabase.Client client;
 
-        // Set up environment variables and conncet to client
+        // Set up environment variables and connect to client
         public SupabaseConnection()
         {
             supabaseUrl = Environment.GetEnvironmentVariable("SUPABASE_URL");
