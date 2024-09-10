@@ -28,7 +28,7 @@ jobs:
         run: dotnet restore GigTracker.csproj
 
       - name: Build the project
-        run: dotnet build GigTracker.csproj -c Release --no-restore
+        run: dotnet build GigTracker.csproj -c Release --no-restore -r win-x64
 
       - name: Publish the project
         run: dotnet publish GigTracker.csproj -c Release --self-contained -r win-x64 -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
