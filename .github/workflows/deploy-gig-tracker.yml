@@ -28,7 +28,7 @@ jobs:
         run: dotnet build GigTracker.csproj -c Release --no-restore
 
       - name: Publish the project
-        run: dotnet publish GigTracker.csproj -c Release --self-contained -r win-x64 -p:PublishSingleFile=true --no-build
+        run: dotnet publish GigTracker.csproj -c Release --self-contained -r win-x64 -p:PublishSingleFile=true
 
       - uses: actions/create-release@v1
         id: create_release
