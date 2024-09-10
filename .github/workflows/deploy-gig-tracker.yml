@@ -5,6 +5,9 @@ on:
     tags:
       - "gig-tracker/v*"
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: windows-latest
