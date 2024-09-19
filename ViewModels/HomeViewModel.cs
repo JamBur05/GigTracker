@@ -28,6 +28,7 @@ namespace GigTracker.ViewModels
         public ICommand AddConcertNavigateCommand { get; }
         public ICommand DeleteConcertCommand { get; }
         public ICommand UpdateConcertNavigateCommand { get; }
+        public ICommand ConnectSpotifyCommand { get; }
 
         public ObservableCollection<Concerts> Concerts { get; set; } = new ObservableCollection<Concerts>();
 
@@ -71,6 +72,7 @@ namespace GigTracker.ViewModels
             AddConcertNavigateCommand = new NavigateCommand(addConcertNavigationService);
             DeleteConcertCommand = new DeleteConcertCommand(this);
             UpdateConcertNavigateCommand = new UpdateConcertNavigation(updateConcertNavigationService, this);
+            ConnectSpotifyCommand = new ConnectSpotifyCommand();
 
             // Set welcome message
             DisplayText = $"Hi {currentUser.username}!";

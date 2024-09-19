@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HccewQ8jUZWqavUtT5WeMTuY1lJ2evAQnX0aGVLhQhAg6XyEaztxaQdpvPnX2vxM2yEMJqWYPNZYUbOKstyzqw==",
+  "dgSpecHash": "f9dcSLJnF84=",
   "success": true,
-  "projectFilePath": "C:\\Users\\James\\source\\repos\\GigTracker\\GigTracker.csproj",
+  "projectFilePath": "C:\\Users\\James\\Source\\Repos\\GigTracker\\GigTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\James\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\James\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
@@ -24,9 +24,9 @@
     "C:\\Users\\James\\.nuget\\packages\\system.reactive\\6.0.0\\system.reactive.6.0.0.nupkg.sha512",
     "C:\\Users\\James\\.nuget\\packages\\system.threading.channels\\8.0.0\\system.threading.channels.8.0.0.nupkg.sha512",
     "C:\\Users\\James\\.nuget\\packages\\websocket.client\\5.1.1\\websocket.client.5.1.1.nupkg.sha512",
-    "C:\\Users\\James\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.22\\microsoft.aspnetcore.app.runtime.win-x64.6.0.22.nupkg.sha512",
-    "C:\\Users\\James\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.22\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.22.nupkg.sha512",
-    "C:\\Users\\James\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.22\\microsoft.netcore.app.runtime.win-x64.6.0.22.nupkg.sha512"
+    "C:\\Users\\James\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.33\\microsoft.aspnetcore.app.runtime.win-x64.6.0.33.nupkg.sha512",
+    "C:\\Users\\James\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.33\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.33.nupkg.sha512",
+    "C:\\Users\\James\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.33\\microsoft.netcore.app.runtime.win-x64.6.0.33.nupkg.sha512"
   ],
   "logs": []
 }
