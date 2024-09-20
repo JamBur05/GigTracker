@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,7 +25,10 @@ namespace GigTracker.ViewModels
         public int userID { get; private set; }
         private string username;
         private string _displayText;
+        private string _spotifyText;
+        private string spotifyAuthKey;
         private Concerts selectedConcert;
+        private SpotifyService spotifyService;
         public ICommand AddConcertNavigateCommand { get; }
         public ICommand DeleteConcertCommand { get; }
         public ICommand UpdateConcertNavigateCommand { get; }
@@ -39,6 +43,15 @@ namespace GigTracker.ViewModels
             {
                 _displayText = value;
                 OnPropertyChanged(nameof(DisplayText)); 
+            }
+        }
+        public string SpotifyText
+        {
+            get { return _spotifyText; }
+            set
+            {
+                _spotifyText = value;
+                OnPropertyChanged(nameof(SpotifyText));
             }
         }
         public Concerts SelectedConcert
@@ -72,15 +85,32 @@ namespace GigTracker.ViewModels
             AddConcertNavigateCommand = new NavigateCommand(addConcertNavigationService);
             DeleteConcertCommand = new DeleteConcertCommand(this);
             UpdateConcertNavigateCommand = new UpdateConcertNavigation(updateConcertNavigationService, this);
-            ConnectSpotifyCommand = new ConnectSpotifyCommand();
+            ConnectSpotifyCommand = new ConnectSpotifyCommand(this);
 
             // Set welcome message
             DisplayText = $"Hi {currentUser.username}!";
-
+            
             userID = currentUser.id;
             username = currentUser.username;
         }
 
+        public async void StartSpotifyService(string authKey)
+        {
+            int counter = 1;
+
+            spotifyAuthKey = authKey;
+            spotifyService = new SpotifyService(spotifyAuthKey);
+            var topArtists = await spotifyService.GetTopArtistsAsync();
+
+            SpotifyText = "Top 10 Artists:";
+
+            foreach (var artist in topArtists.Items)
+            {
+                SpotifyText += "\n";
+                SpotifyText += $"{counter++}. {artist.Name}";
+            }
+
+        }
         private async void InitializeAsync()
         {
             try

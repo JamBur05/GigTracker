@@ -1,4 +1,6 @@
 ﻿using GigTracker.Services;
+using GigTracker.ViewModels;
+using GigTracker.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,22 +13,17 @@ namespace GigTracker.Commands
     public class ConnectSpotifyCommand : CommandBase
     {
         private readonly OAuthService _oauthService;
-        public ConnectSpotifyCommand() 
+        private HomeViewModel _homeViewModel;
+        public ConnectSpotifyCommand(HomeViewModel homeViewModel) 
         {
             _oauthService = new OAuthService();
+            _homeViewModel = homeViewModel;
         }
 
         public override async void Execute(object? parameter)
         {
             var tokenResponse = await _oauthService.GetAuthCodeAsync();
-            
-            // DEBUG
-            MessageBox.Show("Access Token: " + tokenResponse.AccessToken +
-            " Token Type: " + tokenResponse.TokenType +
-            " Expires In: " + tokenResponse.ExpiresIn + " seconds" +
-            " Refresh Token: " + tokenResponse.RefreshToken +
-            " Scope: " + tokenResponse.Scope);
-
+            _homeViewModel.StartSpotifyService(tokenResponse.AccessToken);
         }
     }
 }

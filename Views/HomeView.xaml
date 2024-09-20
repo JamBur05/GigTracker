@@ -5,12 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GigTracker.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="450" d:DesignWidth="1200"
              Background="LightSlateGray">
     <Grid>
         <TextBlock x:Name="txtUserDisplay" HorizontalAlignment="Left" Margin="20,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="29" Width="186" FontSize="20"
                    Text="{Binding DisplayText, UpdateSourceTrigger=PropertyChanged}"/>
-        <DataGrid x:Name="ConcertsDataGrid" AutoGenerateColumns="False" Margin="39,53,44,68" ItemsSource="{Binding Concerts}" SelectedItem="{Binding SelectedConcert, Mode=TwoWay}">
+        <TextBlock x:Name="txtSpotifyDisplay" Margin="670,78,-670,-78" FontSize="20"
+                   Text="{Binding SpotifyText, UpdateSourceTrigger=PropertyChanged}"/>
+        <DataGrid x:Name="ConcertsDataGrid" Width="600" Height="280" HorizontalAlignment="Left" AutoGenerateColumns="False" Margin="39,53,44,68" ItemsSource="{Binding Concerts}" SelectedItem="{Binding SelectedConcert, Mode=TwoWay}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Band" Binding="{Binding BandName}" />
                 <DataGridTextColumn Header="Venue" Binding="{Binding VenueName}" />

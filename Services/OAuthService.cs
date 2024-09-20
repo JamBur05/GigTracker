@@ -12,13 +12,17 @@ namespace GigTracker.Services
 {
     public class OAuthService
     {
+        private string _clientSecret;
+
         public async Task<TokenResponse> GetAuthCodeAsync()
         {
+            _clientSecret = Environment.GetEnvironmentVariable("SPOTIFY_SECRET");
+
             var spotifyAuthUrl = "https://accounts.spotify.com/authorize" +
             "?response_type=code" +
             "&client_id=" + "09599187f02e4e4e821c9be5915a8420" +
             "&redirect_uri=" + Uri.EscapeDataString("http://localhost:8888/callback") +
-            "&scope=" + Uri.EscapeDataString("user-read-private user-read-email");
+            "&scope=" + Uri.EscapeDataString("user-read-private user-read-email user-top-read user-read-recently-played");
 
             Process.Start(new ProcessStartInfo
             {
@@ -36,7 +40,7 @@ namespace GigTracker.Services
                 { "code", authorizationCode },
                 { "redirect_uri", "http://localhost:8888/callback" },
                 { "client_id", "09599187f02e4e4e821c9be5915a8420" },
-                { "client_secret", "PRIVATE_KEY" }
+                { "client_secret", _clientSecret }
             };
 
             var requestContent = new FormUrlEncodedContent(requestParams);

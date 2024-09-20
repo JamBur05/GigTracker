@@ -137,6 +137,22 @@
           }
         }
       },
+      "SpotifyAPI.Web/7.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "compile": {
+          "lib/net6.0/SpotifyAPI.Web.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SpotifyAPI.Web.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Supabase/1.1.1": {
         "type": "package",
         "dependencies": {
@@ -462,6 +478,22 @@
         },
         "runtime": {
           "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "SpotifyAPI.Web/7.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
+        "compile": {
+          "lib/net6.0/SpotifyAPI.Web.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SpotifyAPI.Web.dll": {
             "related": ".xml"
           }
         }
@@ -922,6 +954,29 @@
         "packageIcon.png"
       ]
     },
+    "SpotifyAPI.Web/7.1.1": {
+      "sha512": "xMgjZkBqVlZNZ/hROhx5XsKEWQtxRmFTZs5mv6Z9w+fwzBnCR1EFSwTcdpKNiVx/Pa+9p7PJO0q1Cb+fOkQq6Q==",
+      "type": "package",
+      "path": "spotifyapi.web/7.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net5.0/SpotifyAPI.Web.dll",
+        "lib/net5.0/SpotifyAPI.Web.xml",
+        "lib/net6.0/SpotifyAPI.Web.dll",
+        "lib/net6.0/SpotifyAPI.Web.xml",
+        "lib/net7.0/SpotifyAPI.Web.dll",
+        "lib/net7.0/SpotifyAPI.Web.xml",
+        "lib/net8.0/SpotifyAPI.Web.dll",
+        "lib/net8.0/SpotifyAPI.Web.xml",
+        "lib/netstandard2.0/SpotifyAPI.Web.dll",
+        "lib/netstandard2.0/SpotifyAPI.Web.xml",
+        "lib/netstandard2.1/SpotifyAPI.Web.dll",
+        "lib/netstandard2.1/SpotifyAPI.Web.xml",
+        "spotifyapi.web.7.1.1.nupkg.sha512",
+        "spotifyapi.web.nuspec"
+      ]
+    },
     "Supabase/1.1.1": {
       "sha512": "LW9O05IiZBW3YUDT/gndPKvzT3I7PVgx0j87+AdJu7mT42m7oh2nOnjuDR9pU0E9FE2Ke/QGovrH/u5OjGn7lg==",
       "type": "package",
@@ -1137,6 +1192,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "SpotifyAPI.Web >= 7.1.1",
       "Supabase >= 1.1.1"
     ]
   },
@@ -1146,11 +1202,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\James\\source\\repos\\GigTracker\\GigTracker.csproj",
+      "projectUniqueName": "C:\\Users\\James\\Source\\Repos\\GigTracker\\GigTracker.csproj",
       "projectName": "GigTracker",
-      "projectPath": "C:\\Users\\James\\source\\repos\\GigTracker\\GigTracker.csproj",
+      "projectPath": "C:\\Users\\James\\Source\\Repos\\GigTracker\\GigTracker.csproj",
       "packagesPath": "C:\\Users\\James\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\James\\source\\repos\\GigTracker\\obj\\",
+      "outputPath": "C:\\Users\\James\\Source\\Repos\\GigTracker\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\James\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1184,6 +1240,10 @@
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
         "dependencies": {
+          "SpotifyAPI.Web": {
+            "target": "Package",
+            "version": "[7.1.1, )"
+          },
           "Supabase": {
             "target": "Package",
             "version": "[1.1.1, )"
